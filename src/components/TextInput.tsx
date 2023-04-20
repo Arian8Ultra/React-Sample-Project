@@ -69,6 +69,7 @@ interface TextInputProps {
   buttonHoverColor?: string;
   items?: Array<string>;
   isSelect?: boolean;
+  focus: object | number | string;
 }
 
 function TextInput(props: TextInputProps) {
@@ -128,6 +129,7 @@ function TextInput(props: TextInputProps) {
   props.buttonHoverColor = props.buttonHoverColor != null ? props.buttonHoverColor : "black";
   props.items = props.items != null ? props.items : [];
   props.isSelect = props.isSelect != null ? props.isSelect : false;
+  props.focus = props.focus != null ? props.focus : {};
 
   const [textValue, setTextValue] = useState(props.value);
   useEffect(() => {
@@ -207,6 +209,8 @@ function TextInput(props: TextInputProps) {
           width: props.width,
           fontSize: props.fontSize,
           backgroundColor: props.backgroundColor,
+          color: props.textColor,
+          '&:focus': props.focus,
         }}
         InputLabelProps={{
           size: props.size,
