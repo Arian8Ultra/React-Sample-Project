@@ -1,11 +1,10 @@
 import React from 'react'
+import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import MainLayout from '../layouts/MainLayout'
 
-function Router() {
+const router = createBrowserRouter(createRoutesFromElements(
+    <Route path="/" element={<MainLayout />} >
 
-  // to do: add routes and react router things
-  return (
-    <div>Router</div>
-  )
-}
+    </Route>
+))
 
-export default Router
