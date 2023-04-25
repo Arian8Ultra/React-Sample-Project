@@ -10,7 +10,7 @@ export const theme = createTheme({
     fontFamily: "Vazirmatn,sans-serif",
   },
   palette: {
-    mode:"light",
+    mode:"dark",
     primary: {
       main: primary,
     },

@@ -14,14 +14,15 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.12.0",
+    "@mui/material": "^5.12.1",
     "@mui/styled-engine-sc": "^5.12.0",
     "@react-shamsi/calendar": "^0.1.1",
     "@react-shamsi/datepicker": "^0.1.0",
-    "axios": "^1.3.5",
-    "framer-motion": "^10.12.2",
+    "axios": "^1.3.6",
+    "framer-motion": "^10.12.4",
     "graphql": "^16.6.0",
     "jalali-react-datepicker": "^1.2.3",
+    "mui-one-time-password-input": "^1.1.0",
     "react": "^18.2.0",
     "react-calendar-datetime-picker": "^1.6.3",
     "react-dom": "^18.2.0",
@@ -37,11 +38,11 @@
     "zustand": "^4.3.7"
   },
   "devDependencies": {
-    "@types/react": "^18.0.35",
+    "@types/react": "^18.0.37",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react-swc": "^3.3.0",
+    "terser": "^5.17.1",
     "typescript": "^5.0.4",
-    "terser": "^5.16.8",
-    "vite": "^4.2.1"
+    "vite": "^4.3.1"
   }
 }

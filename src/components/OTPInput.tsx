@@ -1,5 +1,6 @@
 import { Box, Center, ChakraProvider, Input } from "@chakra-ui/react";
 import React from "react";
+import { primary } from "../theme/Colors";
 
 interface OTPInputProps {
   numberOfInputs?: number;
@@ -16,27 +17,31 @@ interface OTPInputProps {
   spaceBetween?: string;
   direction?: string;
   backgroundColor?: string;
+  placeholder?: string;
+  hasShadow?: boolean;
 }
 
 // create react functional component
 export default function OTPInput(props: OTPInputProps) {
-  props.numberOfSpaces = props.numberOfSpaces || 0;
-  props.spaceBetweenInputs = props.spaceBetweenInputs || 0;
-  props.indexOfSpace = props.indexOfSpace || 0;
-  props.numberOfInputs = props.numberOfInputs || 3;
-  props.focusColor = props.focusColor || "red";
-  props.textColor = props.textColor || "black";
-  props.mainColor = props.mainColor || "black";
-  props.boxShadow = props.boxShadow || {};
-  props.getData = props.getData || function () {};
-  props.maxWidth = props.maxWidth || "100%";
-  props.height = props.height || "60px";
-  props.spaceBetween = props.spaceBetween || "1";
-  props.direction = props.direction || "row-reverse";
-  props.backgroundColor = props.backgroundColor || "transparent";
-  const [otp, setOtp] = React.useState(new Array(props.numberOfInputs + props.numberOfSpaces).fill(" "));
+  const numberOfSpaces = props.numberOfSpaces || 0;
+  const spaceBetweenInputs = props.spaceBetweenInputs || 0;
+  const indexOfSpace = props.indexOfSpace || 0;
+  const numberOfInputs = props.numberOfInputs || 3;
+  const focusColor = props.focusColor || primary;
+  const textColor = props.textColor || "black";
+  const mainColor = props.mainColor || "black";
+  const boxShadow = props.boxShadow || {};
+  const getData = props.getData || function () {};
+  const maxWidth = props.maxWidth || "100%";
+  const height = props.height || "60px";
+  const spaceBetween = props.spaceBetween || "1";
+  const direction = props.direction || "row";
+  const backgroundColor = props.backgroundColor || "transparent";
+  const [otp, setOtp] = React.useState(new Array(numberOfInputs + numberOfSpaces).fill(" "));
   const [value, setValue] = React.useState("");
-  const [valueArray, setValueArray] = React.useState(new Array(props.numberOfInputs).fill(" "));
+  const [valueArray, setValueArray] = React.useState(new Array(numberOfInputs).fill(" "));
+  const placeholder = props.placeholder || "-";
+  const hasShadow = props.hasShadow || false;
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>, index: number) => {
     e.preventDefault();
@@ -67,41 +72,41 @@ export default function OTPInput(props: OTPInputProps) {
 
     if (index === 0 && e.target.value === "") {
       setValue("");
-      setValueArray(new Array(props.numberOfInputs).fill(" "));
+      setValueArray(new Array(numberOfInputs).fill(" "));
     }
   };
 
   React.useEffect(() => {
-    props.getData(valueArray.join(""));
+    getData(valueArray.join(""));
   }, [otp]);
 
   return (
     // adding rtl support to chakra ui
-
-    <ChakraProvider>
-      <Center>
-        <Box
-          display={"flex"}
-          // @ts-ignore
-          flexDir={props.direction}
-          justifyContent={"space-between"}
-          width={"100%"}
-          maxWidth={props.maxWidth}
-        >
-          {otp.map((data, index) => (
-            <Input
-              key={index}
-              onChange={(e) => handleOnChange(e, index)}
-              textAlign='center'
-              height={props.height}
-              mx={props.spaceBetween}
-              backgroundColor={props.backgroundColor}
-              // onFocus change box shadow to focusColor and border to focusColor
-              _focus={{ borderColor: props.focusColor, boxShadow: `0 0 10px 2px ${props.focusColor}` }}
-            />
-          ))}
-        </Box>
-      </Center>
-    </ChakraProvider>
+    <Box display={"flex"} justifyContent={"center"} alignItems={"center"}>
+      <Box
+        display={"flex"}
+        // @ts-ignore
+        flexDir={direction}
+        justifyContent={"space-between"}
+        width={"100%"}
+        maxWidth={maxWidth}
+      >
+        {otp.map((data, index) => (
+          <Input
+            key={index}
+            onChange={(e) => handleOnChange(e, index)}
+            textAlign='center'
+            height={height}
+            mx={spaceBetween}
+            backgroundColor={backgroundColor}
+            placeholder={placeholder}
+            _focus={{
+              borderColor: focusColor,
+              boxShadow: hasShadow && `0 0 10px 2px ${focusColor}`,
+            }}
+          />
+        ))}
+      </Box>
+    </Box>
   );
 }

@@ -10,44 +10,26 @@ import { borderRadiuosButton, borderRadiuosTextField } from "../theme/Themes";
 // @ts-ignore
 import { ArrowDownwardRounded } from "@mui/icons-material";
 
-export default function Selector({
-  // @ts-ignore
-  id,
-  // @ts-ignore
-  label,
-  // @ts-ignore
-  items,
-  // @ts-ignore
-  getValue,
-  // @ts-ignore
-  fullWidth,
-  // @ts-ignore
-  width,
-  // @ts-ignore
-  height,
-  // @ts-ignore
-  variant,
-  // @ts-ignore
-  fontColor,
-  // @ts-ignore
-  border,
-  // @ts-ignore
-  firstValue,
-  // @ts-ignore
-  mt,
-  // @ts-ignore
-  mb,
-  // @ts-ignore
-  backgroundColor,
-  // @ts-ignore
-  borderRadius,
-  // @ts-ignore
-  display,
-  // @ts-ignore
-  fontSize,
-  // @ts-ignore
-  size,
-}) {
+export default function Selector(
+  id: string | undefined,
+  label: string | undefined,
+  items: string[] | object[] | undefined,
+  getValue: Function,
+  fullWidth: boolean | undefined,
+  width: string | undefined,
+  height: string | undefined,
+  variant: "standard" | "outlined" | "filled" | undefined,
+  fontColor: string | undefined,
+  border: string | undefined,
+  firstValue: string | undefined,
+  mt: number | string | any,
+  mb: number | string | any,
+  backgroundColor: string | undefined,
+  borderRadius: string | number | undefined,
+  display: string | undefined,
+  fontSize: number | undefined,
+  size: "small" | "medium" | undefined,
+) {
   id = id != null ? id : "";
   label = label != null ? label : "";
   items = items != null ? items : [];
@@ -68,8 +50,7 @@ export default function Selector({
   size = size != null ? size : "small";
   const [value, setValue] = React.useState(firstValue);
 
-  // @ts-ignore
-  const handleChange = (event) => {
+  const handleChange = (event: { target: { value: React.SetStateAction<string> } }) => {
     setValue(event.target.value);
     getValue(event.target.value);
   };
@@ -128,19 +109,32 @@ export default function Selector({
             // width: width,
             border: border,
             marginTop: mt,
-            // @ts-ignore
-            mb: mb,
+            marginBottom: mb,
             display: display,
           },
         }}
       >
-        {items.map((
-// @ts-ignore
-        option) => (
-          <MenuItem key={option} value={option} sx={{ zIndex: 20 }}>
-            {option}
-          </MenuItem>
-        ))}
+        {/* check if the items are object or string */}
+
+        {typeof items[0] === "string"
+          ? items.map((option) => (
+              // @ts-ignore
+              <MenuItem key={option} value={option} sx={{ zIndex: 20 }}>
+                {option}
+              </MenuItem>
+            ))
+          : items.map(
+              // @ts-ignore
+              (option: {
+                value: string | number | readonly string[] | undefined;
+                label: React.ReactNode;
+              }) => (
+                // @ts-ignore
+                <MenuItem key={option.value} value={option.value} sx={{ zIndex: 20 }}>
+                  {option.label}
+                </MenuItem>
+              ),
+            )}
       </Select>
     </FormControl>
   );
