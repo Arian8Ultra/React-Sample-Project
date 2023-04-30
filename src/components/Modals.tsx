@@ -13,7 +13,7 @@ import {
 import { borderRadiuosMenu } from "../theme/Themes";
 
 interface NewModalProps {
-  width?: string|number|object;
+  width?: string | number | object;
   color?: string;
   children?: any;
   name?: string;
@@ -25,13 +25,12 @@ interface NewModalProps {
 }
 
 export default function NewModal(props: NewModalProps) {
-  props.name = props.name != null ? props.name : "عنوان";
-  props.width = props.width != null ? props.width : "30vmax";
-  props.backgroundColor = props.backgroundColor != null ? props.backgroundColor : primaryLightTransparent;
-  props.isCloseable = props.isCloseable != null ? props.isCloseable : true;
-  props.dividerColor = props.dividerColor != null ? props.dividerColor : 'transparent';
-  const { width, color, children, name, backgroundColor, isCloseable, dividerColor, ...rest } = props;
-
+  let { width, color, children, name, backgroundColor, isCloseable, dividerColor, ...rest } = props;
+  name = props.name != null ? props.name : "عنوان";
+  width = props.width != null ? props.width : "30vmax";
+  backgroundColor = props.backgroundColor != null ? props.backgroundColor : primaryLightTransparent;
+  isCloseable = props.isCloseable != null ? props.isCloseable : true;
+  dividerColor = props.dividerColor != null ? props.dividerColor : "transparent";
   const handleClose = () => {
     if (props.isCloseable) props.changeModal && props.changeModal();
   };
@@ -43,8 +42,8 @@ export default function NewModal(props: NewModalProps) {
           top: "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
-          width: props.width,
-          bgcolor: props.backgroundColor,
+          width: width,
+          bgcolor: backgroundColor,
           boxShadow: 24,
           borderRadius: borderRadiuosMenu,
           backdropFilter: "blur(5px)",
@@ -59,17 +58,23 @@ export default function NewModal(props: NewModalProps) {
             alignItems='center'
             width={isCloseable ? "100%" : "max-content"}
           >
-            <Text fontSize='25px' fontWeight='bold' color={props.color} textAlign={"center"}>
-              {props.name}
+            <Text fontSize='25px' fontWeight='bold' color={color} textAlign={"center"}>
+              {name}
             </Text>
-            {props.isCloseable && (
+            {isCloseable && (
               <IconButton onClick={handleClose}>
-                <CancelRoundedIcon sx={{ color: props.color != null ? props.color : onPrimary }} />
+                <CancelRoundedIcon sx={{ color: color != null ? color : onPrimary }} />
               </IconButton>
             )}
           </Stack>
         </Center>
-        <Box width='100%' height='2px' bgcolor={props.dividerColor} my={"10px"} borderRadius={"20px"} />
+        <Box
+          width='100%'
+          height='2px'
+          bgcolor={dividerColor}
+          my={"10px"}
+          borderRadius={"20px"}
+        />
         <Center>{props.children}</Center>
       </Box>
     </Modal>

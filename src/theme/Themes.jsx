@@ -10,7 +10,7 @@ export const theme = createTheme({
     fontFamily: "Vazirmatn,sans-serif",
   },
   palette: {
-    mode:"dark",
+    mode:"light",
     primary: {
       main: primary,
     },
@@ -24,7 +24,6 @@ export const theme = createTheme({
       paper:'#ffffff',
     }
   },
-  direction: "rtl",
 });
 
 export const borderRadiuos = '100px'; /* 4 */

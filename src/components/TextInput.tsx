@@ -79,71 +79,68 @@ interface TextInputProps {
 }
 
 function TextInput(props: TextInputProps) {
-  const id = props.id != null ? props.id : "";
-  const label = props.label != null ? props.label : "";
-  const type = props.type != null ? props.type : "text";
-  const idNum = props.idNum != null ? props.idNum : 0;
-  const autoComplete = props.autoComplete != null ? props.autoComplete : "";
-  const disabled = props.disabled != null ? props.disabled : false;
-  const fontSize = props.fontSize != null ? props.fontSize : 16;
-  const height = props.height != null ? props.height : "max-content";
-  const width = props.width != null ? props.width : "max-content";
+  let id = props.id != null ? props.id : "";
+  let label = props.label != null ? props.label : "";
+  let type = props.type != null ? props.type : "text";
+  let idNum = props.idNum != null ? props.idNum : 0;
+  let autoComplete = props.autoComplete != null ? props.autoComplete : "";
+  let disabled = props.disabled != null ? props.disabled : false;
+  let fontSize = props.fontSize != null ? props.fontSize : 16;
+  let height = props.height != null ? props.height : "max-content";
+  let width = props.width != null ? props.width : "max-content";
 
-  const backgroundColor = props.backgroundColor != null ? props.backgroundColor : {};
-  const hoverColor = props.hoverColor != null ? props.hoverColor : "white";
-  const position = props.position != null ? props.position : "relative";
-  const bottom = props.bottom != null ? props.bottom : "auto";
-  const right = props.right != null ? props.right : "auto";
-  const top = props.top != null ? props.top : "auto";
-  const left = props.left != null ? props.left : "auto";
-  const margin = props.margin != null ? props.margin : "0px";
-  const text = props.text != null ? props.text : "";
-  const value = props.value != null ? props.value : "";
-  const helperText = props.helperText != null ? props.helperText : "";
-  const error = props.error != null ? props.error : false;
-  const size = props.size != null ? props.size : "normal";
-  const multiline = props.multiline != null ? props.multiline : false;
-  const rows = props.rows != null ? props.rows : 1;
-  const maxRows = props.maxRows != null ? props.maxRows : 1;
-  const py = props.py != null ? props.py : "0px";
-  const px = props.px != null ? props.px : "0px";
-  const getText = props.getText != null ? props.getText : () => {};
-  const dir = props.dir != null ? props.dir : "rtl";
-  const hasIcon = props.hasIcon != null ? props.hasIcon : false;
-  const iconClick = props.iconClick != null ? props.iconClick : () => {};
-  const iconColor = props.iconColor != null ? props.iconColor : "black";
-  const iconHoverColor = props.iconHoverColor != null ? props.iconHoverColor : "black";
-  const iconSize = props.iconSize != null ? props.iconSize : 16;
-  const iconMargin = props.iconMargin != null ? props.iconMargin : "0px";
-  const iconBackground = props.iconBackground != null ? props.iconBackground : "transparent";
-  const fullWidth = props.fullWidth != null ? props.fullWidth : false;
-  const defaultValue = props.defaultValue != null ? props.defaultValue : "";
-  const placeholder = props.placeholder != null ? props.placeholder : "";
-  const borderRadius = props.borderRadius != null ? props.borderRadius : "15px";
-  const icon = props.icon != null ? props.icon : null;
-  const iconPosition = props.iconPosition != null ? props.iconPosition : "end";
-  const hasStickyText = props.hasStickyText != null ? props.hasStickyText : false;
-  const stickyText = props.stickyText != null ? props.stickyText : "";
-  const stickyTextColor = props.stickyTextColor != null ? props.stickyTextColor : "black";
-  const stickyTextSize = props.stickyTextSize != null ? props.stickyTextSize : 16;
-  const stickyTextMargin = props.stickyTextMargin != null ? props.stickyTextMargin : "0px";
-  const shrink = props.shrink != null ? props.shrink : {};
-  const children = props.children != null ? props.children : null;
-  const hasButton = props.hasButton != null ? props.hasButton : false;
-  const buttonOnClick = props.buttonOnClick != null ? props.buttonOnClick : () => {};
-  const buttonColor = props.buttonColor != null ? props.buttonColor : "black";
-  const buttonHoverColor = props.buttonHoverColor != null ? props.buttonHoverColor : "black";
-  const items = props.items != null ? props.items : [];
-  const isSelect = props.isSelect != null ? props.isSelect : false;
-  const focus = props.focus != null ? props.focus : {};
-  const border = props.border != null ? props.border : {};
-  const borderColor = props.borderColor != null ? props.borderColor : primary;
-  const borderColorHover = props.borderColorHover != null ? props.borderColorHover : secondary;
-  const borderColorFocus = props.borderColorFocus != null ? props.borderColorFocus : secondary;
+  let backgroundColor = props.backgroundColor != null ? props.backgroundColor : {};
+  let hoverColor = props.hoverColor != null ? props.hoverColor : "white";
+  let position = props.position != null ? props.position : "relative";
+  let bottom = props.bottom != null ? props.bottom : "auto";
+  let right = props.right != null ? props.right : "auto";
+  let top = props.top != null ? props.top : "auto";
+  let left = props.left != null ? props.left : "auto";
+  let margin = props.margin != null ? props.margin : "0px";
+  let helperText = props.helperText != null ? props.helperText : "";
+  let error = props.error != null ? props.error : false;
+  let size = props.size != null ? props.size : "normal";
+  let multiline = props.multiline != null ? props.multiline : false;
+  let rows = props.rows != null ? props.rows : 1;
+  let maxRows = props.maxRows != null ? props.maxRows : 1;
+  let py = props.py != null ? props.py : "0px";
+  let px = props.px != null ? props.px : "0px";
+  let getText = props.getText != null ? props.getText : () => {};
+  let dir = props.dir != null ? props.dir : "rtl";
+  let hasIcon = props.hasIcon != null ? props.hasIcon : false;
+  let iconClick = props.iconClick != null ? props.iconClick : () => {};
+  let iconColor = props.iconColor != null ? props.iconColor : "black";
+  let iconHoverColor = props.iconHoverColor != null ? props.iconHoverColor : "black";
+  let iconSize = props.iconSize != null ? props.iconSize : 16;
+  let iconMargin = props.iconMargin != null ? props.iconMargin : "0px";
+  let iconBackground = props.iconBackground != null ? props.iconBackground : "transparent";
+  let fullWidth = props.fullWidth != null ? props.fullWidth : false;
+  let defaultValue = props.defaultValue != null ? props.defaultValue : "";
+  let placeholder = props.placeholder != null ? props.placeholder : "";
+  let borderRadius = props.borderRadius != null ? props.borderRadius : "15px";
+  let icon = props.icon != null ? props.icon : null;
+  let iconPosition = props.iconPosition != null ? props.iconPosition : "end";
+  let hasStickyText = props.hasStickyText != null ? props.hasStickyText : false;
+  let stickyText = props.stickyText != null ? props.stickyText : "";
+  let stickyTextColor = props.stickyTextColor != null ? props.stickyTextColor : "black";
+  let stickyTextSize = props.stickyTextSize != null ? props.stickyTextSize : 16;
+  let stickyTextMargin = props.stickyTextMargin != null ? props.stickyTextMargin : "0px";
+  let shrink = props.shrink != null ? props.shrink : {};
+  let hasButton = props.hasButton != null ? props.hasButton : false;
+  let buttonOnClick = props.buttonOnClick != null ? props.buttonOnClick : () => {};
+  let buttonColor = props.buttonColor != null ? props.buttonColor : "black";
+  let buttonHoverColor = props.buttonHoverColor != null ? props.buttonHoverColor : "black";
+  let items = props.items != null ? props.items : [];
+  let isSelect = props.isSelect != null ? props.isSelect : false;
+  let focus = props.focus != null ? props.focus : {};
+  let border = props.border != null ? props.border : {};
+  let borderColor = props.borderColor != null ? props.borderColor : primary;
+  let borderColorHover = props.borderColorHover != null ? props.borderColorHover : secondary;
+  let borderColorFocus = props.borderColorFocus != null ? props.borderColorFocus : secondary;
 
-  const textColor = props.textColor != null ? props.textColor : borderColor;
-  const textColorHover = props.textColorHover != null ? props.textColorHover :borderColorHover;
-  const texColorFocus = props.texColorFocus != null ? props.texColorFocus : borderColorFocus;
+  let textColor = props.textColor != null ? props.textColor : borderColor;
+  let textColorHover = props.textColorHover != null ? props.textColorHover : borderColorHover;
+  let texColorFocus = props.texColorFocus != null ? props.texColorFocus : borderColorFocus;
 
   const [textValue, setTextValue] = useState(props.value);
   useEffect(() => {
@@ -224,6 +221,11 @@ function TextInput(props: TextInputProps) {
           "borderRadius": hasButton ? 0 : borderRadius,
           "py": py,
           "px": px,
+          "right": right,
+          "left": left,
+          "top": top,
+          "bottom": bottom,
+          "position": position,
           "width": width,
           "fontSize": fontSize,
           "backgroundColor": backgroundColor,

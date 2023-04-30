@@ -36,32 +36,32 @@ interface SearchInputProps {
 }
 
 export default function SearchInput(props: SearchInputProps) {
-  const id = props.id;
-  const label = props.label != null ? props.label : "label";
-  const type = props.type != null ? props.type : "text";
-  const idNum = props.idNum;
-  const autoComplete = props.autoComplete != null ? props.autoComplete : "";
-  const disabled = props.disabled != null ? props.disabled : false;
-  const fontSize = props.fontSize != null ? props.fontSize : 16;
-  const height = props.height != null ? props.height : {};
-  const width = props.width != null ? props.width : {};
-  const textColor = props.textColor != null ? props.textColor : "black";
-  const backgroundColor = props.backgroundColor != null ? props.backgroundColor : "";
-  const hoverColor = props.hoverColor != null ? props.hoverColor : "";
-  const position = props.position != null ? props.position : {};
-  const bottom = props.bottom != null ? props.bottom : {};
-  const right = props.right != null ? props.right : {};
-  const top = props.top != null ? props.top : {};
-  const left = props.left != null ? props.left : {};
-  const margin = props.margin != null ? props.margin : {};
-  const text = props.text != null ? props.text : "text";
-  const value = props.setValue != null ? props.setValue : {};
-  const items = props.items != null ? props.items : [];
-  const helperText = props.helperText != null ? props.helperText : "";
-  const error = props.error != null ? props.error : false;
-  const size = props.size != null ? props.size : "small";
-  const mx = props.mx != null ? props.mx : {};
-  const my = props.my != null ? props.my : {};
+  let id = props.id;
+  let label = props.label != null ? props.label : "label";
+  let type = props.type != null ? props.type : "text";
+  let idNum = props.idNum;
+  let autoComplete = props.autoComplete != null ? props.autoComplete : "";
+  let disabled = props.disabled != null ? props.disabled : false;
+  let fontSize = props.fontSize != null ? props.fontSize : 16;
+  let height = props.height != null ? props.height : {};
+  let width = props.width != null ? props.width : {};
+  let textColor = props.textColor != null ? props.textColor : "black";
+  let backgroundColor = props.backgroundColor != null ? props.backgroundColor : "";
+  let hoverColor = props.hoverColor != null ? props.hoverColor : "";
+  let position = props.position != null ? props.position : {};
+  let bottom = props.bottom != null ? props.bottom : {};
+  let right = props.right != null ? props.right : {};
+  let top = props.top != null ? props.top : {};
+  let left = props.left != null ? props.left : {};
+  let margin = props.margin != null ? props.margin : {};
+  let text = props.text != null ? props.text : "text";
+  let value = props.setValue != null ? props.setValue : {};
+  let items = props.items != null ? props.items : [];
+  let helperText = props.helperText != null ? props.helperText : "";
+  let error = props.error != null ? props.error : false;
+  let size = props.size != null ? props.size : "small";
+  let mx = props.mx != null ? props.mx : {};
+  let my = props.my != null ? props.my : {};
 
   const changeData = (data: any) => {
     props.getText(data);

@@ -26,7 +26,7 @@ interface PhoneNumberSelectProps {
   items?: any;
   helperText?: string;
   error?: boolean;
-  size?: "small" | "medium" ;
+  size?: "small" | "medium";
   mx?: any;
   my?: any;
   getText?: any;
@@ -39,32 +39,31 @@ interface PhoneNumberSelectProps {
   border?: string;
   display?: string;
   variant?: "standard" | "filled" | "outlined";
-  getValue:Function;
+  getValue: Function;
 }
 
-
 function PhoneNumberSelect(props: PhoneNumberSelectProps) {
-  props.id = props.id != null ? props.id : "";
-  props.label = props.label != null ? props.label : "";
-  props.width = props.width != null ? props.width : '100px';
-  props.height = props.height != null ? props.height : {};
-  props.fontSize = props.fontSize != null ? props.fontSize : 14;
-  props.textColor = props.textColor != null ? props.textColor : "black";
-  props.backgroundColor = props.backgroundColor != null ? props.backgroundColor : "";
-  props.size = props.size != null ? props.size : "medium";
-  props.getValue = props.getValue != null ? props.getValue : () => {};
-  props.fullWidth = props.fullWidth != null ? props.fullWidth : false;
-  props.firstValue = props.firstValue != null ? props.firstValue : "";
-  props.borderRadius = props.borderRadius != null ? props.borderRadius : '15px';
-  props.mt = props.mt != null ? props.mt : 0;
-  props.mb = props.mb != null ? props.mb : 0;
-  props.border = props.border != null ? props.border : "none";
-  props.display = props.display != null ? props.display : "flex";
-  props.variant = props.variant != null ? props.variant : "outlined";
+  let id = props.id != null ? props.id : "";
+  let label = props.label != null ? props.label : "";
+  let width = props.width != null ? props.width : "100px";
+  let height = props.height != null ? props.height : {};
+  let fontSize = props.fontSize != null ? props.fontSize : 14;
+  let textColor = props.textColor != null ? props.textColor : "black";
+  let backgroundColor = props.backgroundColor != null ? props.backgroundColor : "";
+  let size = props.size != null ? props.size : "medium";
+  let getValue = props.getValue != null ? props.getValue : () => {};
+  let fullWidth = props.fullWidth != null ? props.fullWidth : false;
+  let firstValue = props.firstValue != null ? props.firstValue : "";
+  let borderRadius = props.borderRadius != null ? props.borderRadius : "15px";
+  let mt = props.mt != null ? props.mt : 0;
+  let mb = props.mb != null ? props.mb : 0;
+  let border = props.border != null ? props.border : "none";
+  let display = props.display != null ? props.display : "flex";
+  let variant = props.variant != null ? props.variant : "outlined";
 
   const [countryCode, setCountryCode] = React.useState("+1");
 
-  const handleChange = (event: { target: { value: React.SetStateAction<string>; }; }) => {
+  const handleChange = (event: { target: { value: React.SetStateAction<string> } }) => {
     setCountryCode(event.target.value);
     props.getValue(event.target.value);
   };
@@ -77,31 +76,31 @@ function PhoneNumberSelect(props: PhoneNumberSelectProps) {
     >
       <InputLabel id={props.label}>{props.label}</InputLabel>
       <Select
-        id={props.id}
+        id={id}
         value={countryCode}
-        label={props.label}
+        label={label}
         onChange={handleChange}
-        defaultValue={props.firstValue}
+        defaultValue={firstValue}
         // without any border
         sx={{
-          "borderRadius": props.borderRadius,
-          "backgroundColor": props.backgroundColor,
-          "color": props.textColor,
-          "width": props.width,
-          "height": props.height,
-          "border": props.border,
-          "marginTop": props.mt,
-          "mb": props.mb,
-          "display": props.display,
-          "fontSize": props.fontSize,
+          "borderRadius": borderRadius,
+          "backgroundColor": backgroundColor,
+          "color": textColor,
+          "width": width,
+          "height": height,
+          "border": border,
+          "marginTop": mt,
+          "mb": mb,
+          "display": display,
+          "fontSize": fontSize,
           "&:hover": {
-            border: props.border,
+            border: border,
           },
           "icon": {
-            color: props.textColor,
+            color: textColor,
           },
         }}
-        size={props.size}
+        size={size}
         // disableUnderline={variant === "standard" ? true : false}
         // change icon color of the select component
         MenuProps={{
@@ -115,31 +114,37 @@ function PhoneNumberSelect(props: PhoneNumberSelectProps) {
         inputProps={{
           style: {
             borderRadius: borderRadiuosTextField,
-            color: props.textColor,
-            backgroundColor: props.backgroundColor,
-            fontSize: props.fontSize,
-            height: props.height,
-            width: props.width,
-            border: props.border,
-            marginTop: props.mt,
-            marginBottom: props.mb,
-            display: props.display,
+            color: textColor,
+            backgroundColor: backgroundColor,
+            fontSize: fontSize,
+            height: height,
+            width: width,
+            border: border,
+            marginTop: mt,
+            marginBottom: mb,
+            display: display,
           },
         }}
       >
-        {countries.map((option) => (
-          <MenuItem key={option.code} value={option.dial_code} sx={{ zIndex: 20 }}>
-            <img
-              loading='lazy'
-              width='20'
-              src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
-              srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
-              alt=''
-            />
-            {option.code}
-            {option.dial_code}
-          </MenuItem>
-        ))}
+        {countries.map(
+          (option:any) => (
+            <MenuItem
+              key={option.code}
+              value={option.dial_code}
+              sx={{ zIndex: 20 }}
+            >
+              <img
+                loading='lazy'
+                width='20'
+                src={`https://flagcdn.com/w20/${option.code.toLowerCase()}.png`}
+                srcSet={`https://flagcdn.com/w40/${option.code.toLowerCase()}.png 2x`}
+                alt=''
+              />
+              {option.code}
+              {option.dial_code}
+            </MenuItem>
+          ),
+        )}
       </Select>
     </FormControl>
   );

@@ -22,16 +22,16 @@ interface Props {
 
 function Navbar(props: Props) {
 
-  const background = props.background || "transparent";
-  const backdropFilter = props.backdropFilter || "none";
-  const justifyContent = props.justifyContent || "center";
-  const width = props.width || "100%";
-  const height = props.height || "100%";
-  const padding = props.padding || "0";
-  const direction = props.direction || "ltr";
-  const position = props.position || "fixed";
-  const variant = props.variant || "elevation";
-  const elevation = props.elevation || 0;
+  let background = props.background || "transparent";
+  let backdropFilter = props.backdropFilter || "none";
+  let justifyContent = props.justifyContent || "center";
+  let width = props.width || "100%";
+  let height = props.height || "100%";
+  let padding = props.padding || "0";
+  let direction = props.direction || "ltr";
+  let position = props.position || "fixed";
+  let variant = props.variant || "elevation";
+  let elevation = props.elevation || 0;
 
   return (
     <AppBar

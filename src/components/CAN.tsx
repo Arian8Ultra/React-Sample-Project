@@ -1,10 +1,13 @@
 import { Box } from '@mui/system';
-// @ts-ignore
-import useAbilityStore from '../stores/AbilityStore';
+import useAbilityStore from '../context/abilityStore';
+interface CANProps {
+    component: React.ReactNode;
+    permissionNeeded: string;
+    display?: string;
+}
 
-// @ts-ignore
-export default function CAN({component, permissionNeeded,display}) {
-    // @ts-ignore
+export default function CAN(props: CANProps) {
+    const { component, permissionNeeded } = props;
     const zuAbilities = useAbilityStore((state) => state.abilities);
     const abilities = zuAbilities != null ? zuAbilities : [];
 

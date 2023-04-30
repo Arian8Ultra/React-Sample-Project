@@ -20,20 +20,19 @@ interface DrawerProps {
   borderRadius?: string | object | number;
 }
 function Drawer(props: DrawerProps) {
-  props.open = props.open || false;
-  props.onClose = props.onClose || (() => {});
-  props.anchor = props.anchor || "left";
-  props.width = props.width || "auto";
-  props.height = props.height || "auto";
-  props.backgroundColor = props.backgroundColor || "white";
-  props.top = props.top || {};
-  props.bottom = props.bottom || {};
-  props.left = props.left || {};
-  props.right = props.right || {};
-  props.PaperProps = props.PaperProps || {};
-  props.variant = props.variant || "temporary";
-  props.sx = props.sx || {};
-  props.border = props.border || "none";
+  let open = props.open || false;
+  let onClose = props.onClose || (() => {});
+  let anchor = props.anchor || "left";
+  let width = props.width || "auto";
+  let height = props.height || "auto";
+  let backgroundColor = props.backgroundColor || "white";
+  let top = props.top || {};
+  let bottom = props.bottom || {};
+  let left = props.left || {};
+  let right = props.right || {};
+  let PaperProps = props.PaperProps || {};
+  let variant = props.variant || "temporary";
+  let border = props.border || "none";
 
   return (
     <MUIDrawer
@@ -41,28 +40,28 @@ function Drawer(props: DrawerProps) {
       onClose={props.onClose}
       anchor={props.anchor}
       sx={{
-        width: props.width,
-        height: props.height,
-        backgroundColor: props.backgroundColor,
-        top: props.top,
-        bottom: props.bottom,
-        left: props.left,
-        right: props.right,
+        width: width,
+        height: height,
+        backgroundColor: backgroundColor,
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
         flexShrink: 0,
         "& .MuiDrawer-paper": {
-            width: props.width,
+            width: width,
         },
         ...props.sx,
       }}
       PaperProps={{
         // @ts-ignore
-        backgroundColor: props.backgroundColor,
-        border: props.border,
-        height: props.height,
-        top: props.top,
-        bottom: props.bottom,
-        left: props.left,
-        right: props.right,
+        backgroundColor: backgroundColor,
+        border: border,
+        height: height,
+        top: top,
+        bottom: bottom,
+        left: left,
+        right: right,
         borderRadius: props.borderRadius,
         ...props.PaperProps,
       }}
