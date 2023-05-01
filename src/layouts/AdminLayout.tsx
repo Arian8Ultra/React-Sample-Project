@@ -1,9 +1,12 @@
+import { Outlet } from '@mui/icons-material'
 import React from 'react'
 
-function adminLayout() {
+function AdminLayout() {
   return (
-    <div>adminLayout</div>
+    <div>
+      <Outlet/>
+    </div>
   )
 }
 
-export default adminLayout
+export default AdminLayout
