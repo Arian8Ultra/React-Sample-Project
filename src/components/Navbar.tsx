@@ -1,13 +1,14 @@
 import { AppBar, Toolbar } from "@mui/material";
 import React from "react";
+import { primary } from "../theme/Colors";
 
 interface Props {
   children?: React.ReactNode;
   position?: "fixed" | "absolute" | "sticky" | "static" | "relative";
-  top?: object | number;
-  bottom?: object | number;
-  left?: object | number;
-  right?: object | number;
+  top?: object | number | string;
+  bottom?: object | number| string;
+  left?: object | number| string;
+  right?: object | number| string;
   elevation?: number;
   sx?: object;
   variant?: "elevation" | "outlined";
@@ -22,14 +23,15 @@ interface Props {
 
 function Navbar(props: Props) {
 
-  let background = props.background || "transparent";
+  let background = props.background || primary;
   let backdropFilter = props.backdropFilter || "none";
   let justifyContent = props.justifyContent || "center";
   let width = props.width || "100%";
-  let height = props.height || "100%";
+  let height = props.height || {};
   let padding = props.padding || "0";
   let direction = props.direction || "ltr";
   let position = props.position || "fixed";
+  let top = props.top || 0;
   let variant = props.variant || "elevation";
   let elevation = props.elevation || 0;
 
@@ -48,7 +50,7 @@ function Navbar(props: Props) {
         background: background,
         backdropFilter: backdropFilter,
         p: padding,
-        top: props.top,
+        top: top,
         bottom: props.bottom,
         left: props.left,
         right: props.right,

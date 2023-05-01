@@ -1,10 +1,10 @@
-import { Drawer as MUIDrawer } from "@mui/material";
+import { Drawer as MUIDrawer, Toolbar } from "@mui/material";
 import React from "react";
 
 interface DrawerProps {
-  open: boolean;
-  onClose: () => void;
-  anchor: "left" | "right" | "top" | "bottom";
+  open?: boolean;
+  onClose?: () => void;
+  anchor?: "left" | "right" | "top" | "bottom";
   width?: number | string | object;
   height?: number | string | object;
   backgroundColor?: string;
@@ -23,7 +23,7 @@ function Drawer(props: DrawerProps) {
   let open = props.open || false;
   let onClose = props.onClose || (() => {});
   let anchor = props.anchor || "left";
-  let width = props.width || "auto";
+  let width = props.width || {};
   let height = props.height || "auto";
   let backgroundColor = props.backgroundColor || "white";
   let top = props.top || {};
@@ -40,30 +40,30 @@ function Drawer(props: DrawerProps) {
       onClose={props.onClose}
       anchor={props.anchor}
       sx={{
-        width: width,
-        height: height,
-        backgroundColor: backgroundColor,
-        top: top,
-        bottom: bottom,
-        left: left,
-        right: right,
-        flexShrink: 0,
+        "width": width,
+        "height": height,
+        "top": top,
+        "bottom": bottom,
+        "left": left,
+        "right": right,
+        "flexShrink": 0,
         "& .MuiDrawer-paper": {
-            width: width,
+          width: width,
         },
         ...props.sx,
       }}
       PaperProps={{
-        // @ts-ignore
-        backgroundColor: backgroundColor,
-        border: border,
-        height: height,
-        top: top,
-        bottom: bottom,
-        left: left,
-        right: right,
-        borderRadius: props.borderRadius,
-        ...props.PaperProps,
+        sx: {
+          backgroundColor: backgroundColor,
+          border: border,
+          height: height,
+          top: top,
+          bottom: bottom,
+          left: left,
+          right: right,
+          borderRadius: props.borderRadius,
+          ...props.PaperProps,
+        },
       }}
       variant={props.variant}
     >
