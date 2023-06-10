@@ -1,22 +1,17 @@
 import React from 'react'
 import { Route, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import Root from './Root'
 import App from '../App'
-// import MainLayout from '../layouts/MainLayout'
-// import AdminLayout from '../layouts/AdminLayout'
+import Root from './Root'
+import HomePage from '../pages/Home/HomePage'
 
-const AdminLayout = React.lazy(() => import('../layouts/AdminLayout'))
 const MainLayout = React.lazy(() => import('../layouts/MainLayout'))
 
 export const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<Root />} >
         <Route path="" element={<MainLayout />} >
-            <Route path="" element={<App/>} />
+            <Route path="" element={<HomePage/>} />
         </Route>
 
-        <Route path="/admin" element={<AdminLayout />} >
-            <Route path="" element={<div>Admin</div>} />
-        </Route>
 
     </Route>
 ))

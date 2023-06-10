@@ -19,6 +19,7 @@ interface Props {
   height?: object | number | string;
   padding?: object | number | string;
   direction?: string;
+  isUnderDrawer?: boolean;
 }
 
 function Navbar(props: Props) {
@@ -34,6 +35,7 @@ function Navbar(props: Props) {
   let top = props.top || 0;
   let variant = props.variant || "elevation";
   let elevation = props.elevation || 0;
+  let isUnderDrawer = props.isUnderDrawer || false;
 
   return (
     <AppBar
@@ -42,7 +44,7 @@ function Navbar(props: Props) {
       elevation={elevation}
       dir={direction}
       sx={{
-        zIndex: (theme) => theme.zIndex.drawer + 2,
+        zIndex: !isUnderDrawer ?(theme) => theme.zIndex.drawer + 2 : 0,
         borderBottom: 0,
         width: width,
         height: height,

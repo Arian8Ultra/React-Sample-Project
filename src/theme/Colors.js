@@ -14,7 +14,7 @@ export const onPrimary = "#FFFFFF";
 export const onSecondary = "#FFFFFF";
 
 
-export const background = "#454545";
+export const background = "#fff";
 export const backgroundBlue = "#4096FC";
 export const backgroundPurple = "#7D7AFF";
 export const backgroundTransparent = "rgba(200,200,200,0.2)";

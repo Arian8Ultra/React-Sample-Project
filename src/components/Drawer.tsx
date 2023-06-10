@@ -1,4 +1,4 @@
-import { Drawer as MUIDrawer, Toolbar } from "@mui/material";
+import { ClickAwayListener, Drawer as MUIDrawer, Toolbar } from "@mui/material";
 import React from "react";
 
 interface DrawerProps {
@@ -24,7 +24,7 @@ function Drawer(props: DrawerProps) {
   let onClose = props.onClose || (() => {});
   let anchor = props.anchor || "left";
   let width = props.width || {};
-  let height = props.height || "auto";
+  let height = props.height || "100%";
   let backgroundColor = props.backgroundColor || "white";
   let top = props.top || {};
   let bottom = props.bottom || {};
@@ -35,40 +35,41 @@ function Drawer(props: DrawerProps) {
   let border = props.border || "none";
 
   return (
-    <MUIDrawer
-      open={props.open}
-      onClose={props.onClose}
-      anchor={props.anchor}
-      sx={{
-        "width": width,
-        "height": height,
-        "top": top,
-        "bottom": bottom,
-        "left": left,
-        "right": right,
-        "flexShrink": 0,
-        "& .MuiDrawer-paper": {
-          width: width,
-        },
-        ...props.sx,
-      }}
-      PaperProps={{
-        sx: {
-          backgroundColor: backgroundColor,
-          border: border,
-          height: height,
-          top: top,
-          bottom: bottom,
-          left: left,
-          right: right,
-          borderRadius: props.borderRadius,
-          ...props.PaperProps,
-        },
-      }}
-      variant={props.variant}
-    >
-      {props.children}
-    </MUIDrawer>
+      <MUIDrawer
+        open={props.open}
+        onClose={props.onClose}
+
+        anchor={props.anchor}
+        sx={{
+          "width": width,
+          "height": height,
+          "top": top,
+          "bottom": bottom,
+          "left": left,
+          "right": right,
+          "flexShrink": 0,
+          "& .MuiDrawer-paper": {
+            width: width,
+          },
+          ...props.sx,
+        }}
+        PaperProps={{
+          sx: {
+            backgroundColor: backgroundColor,
+            border: border,
+            height: height,
+            top: top,
+            bottom: bottom,
+            left: left,
+            right: right,
+            borderRadius: props.borderRadius,
+            ...props.PaperProps,
+          },
+        }}
+        variant={props.variant}
+      >
+        {props.children}
+      </MUIDrawer>
   );
 }
 

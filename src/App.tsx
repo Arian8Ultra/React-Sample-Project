@@ -4,7 +4,7 @@ import { Box } from "@mui/material";
 import { useState } from "react";
 import OTPInput from "./components/OTPInput";
 import TextInput from "./components/TextInput";
-import { background, primary, secondary } from "./theme/Colors";
+import {  primary, secondary } from "./theme/Colors";
 
 function App() {
   const [text, setText] = useState("");
